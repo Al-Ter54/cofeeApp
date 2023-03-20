@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-import '../items/offeritem.dart';
+import 'offer_item.dart';
 
 class OffersPage extends StatelessWidget {
   const OffersPage({Key? key}) : super(key: key);

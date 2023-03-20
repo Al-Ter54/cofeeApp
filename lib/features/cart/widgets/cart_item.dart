@@ -1,10 +1,14 @@
-import 'package:cofee/data/model/itemincart.dart';
 import 'package:flutter/material.dart';
 
-class OrderItem extends StatelessWidget {
-  const OrderItem({Key? key, required this.item, required this.onRemove})
-      : super(key: key);
-  final ItemInCart item;
+import '../../../models/product_in_cart.dart';
+
+class CartItem extends StatelessWidget {
+  const CartItem({
+    Key? key,
+    required this.item,
+    required this.onRemove,
+  }) : super(key: key);
+  final ProductInCart item;
   final Function onRemove;
 
   @override
@@ -34,7 +38,8 @@ class OrderItem extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: Text("\$${(item.product.price*item.quantity).toStringAsFixed(2)}"),
+              child: Text(
+                  "\$${(item.product.price * item.quantity).toStringAsFixed(2)}"),
             ),
             Expanded(
               flex: 1,

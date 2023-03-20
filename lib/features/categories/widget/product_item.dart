@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../data/model/product.dart';
+import '../../../models/product.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({Key? key, required this.product, required this.onAdd}) : super(key: key);
+  const ProductItem({
+    Key? key,
+    required this.product,
+    required this.onAdd,
+  }) : super(key: key);
 
   final Product product;
   final Function onAdd;
@@ -35,7 +39,9 @@ class ProductItem extends StatelessWidget {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {onAdd(product);},
+                    onPressed: () {
+                      onAdd(product);
+                    },
                     child: const Text("Add to cart"),
                   ),
                 ],

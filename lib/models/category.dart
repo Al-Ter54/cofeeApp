@@ -1,7 +1,10 @@
-import 'package:cofee/data/model/product.dart';
+import 'package:cofee/models/product.dart';
 
 class Category {
-  Category({required this.name, required this.products});
+  Category({
+    required this.name,
+    required this.products,
+  });
 
   String name;
   List<Product> products;

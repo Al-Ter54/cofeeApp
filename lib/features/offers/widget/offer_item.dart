@@ -1,9 +1,11 @@
-
 import 'package:flutter/material.dart';
 
 class OfferItem extends StatelessWidget {
-  const OfferItem({Key? key, required this.title, required this.description})
-      : super(key: key);
+  const OfferItem({
+    Key? key,
+    required this.title,
+    required this.description,
+  }) : super(key: key);
 
   final String title;
   final String description;
