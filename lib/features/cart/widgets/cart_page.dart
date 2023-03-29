@@ -13,10 +13,16 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  late final CartBloc cartBloc;
+  @override
+  void initState() {
+    super.initState();
+    cartBloc = context.read<CartBloc>();
+    cartBloc.add(CartEventStarted());
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(builder: (context, state) {
-      final cartBloc = context.read<CartBloc>();
       return _body(state: state, cartBloc: cartBloc);
     });
   }

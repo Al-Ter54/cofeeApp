@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
 
+
 class ProductItem extends StatelessWidget {
   const ProductItem({
     Key? key,

@@ -1,3 +1,4 @@
+import 'package:cofee/database/app_database.dart';
 import 'package:cofee/features/cart/bloc/cart_bloc.dart';
 import 'package:cofee/features/categories/bloc/category_bloc.dart';
 import 'package:cofee/pages/home_page.dart';
@@ -6,11 +7,14 @@ import 'package:cofee/services/category_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main () async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  var appDatabase = await $FloorAppDatabase.databaseBuilder("app_database.db").build();
   runApp(
     MyApp(
-      cartService: CartService(),
-      categoryService: CategoryService(),
+      cartService: CartService(appDatabase),
+      categoryService: CategoryService(appDatabase),
     ),
   );
 }
@@ -31,6 +35,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => CartBloc(
+            categoryService: categoryService,
             cartService: cartService,
           ),
         ),
